@@ -126,7 +126,7 @@ The `ld.lld: warning: address (0x82) of section .note.gnu.build-id is not a
 multiple of alignment (4)` warning can be safely ignored.
 
 The resulting `zig-out/watchface_example.pbw` can be installed to a Pebble
-watch or published to the or [Pebble](https://appstore-api.repebble.com/dashboard) or [Rebble](https://developer.rebble.io/guides/appstore-publishing/) app store.
+watch or published to the [Pebble](https://appstore-api.repebble.com/dashboard) or [Rebble](https://developer.rebble.io/guides/appstore-publishing/) app store.
 
 **Emulate the Pebble application:**
 
@@ -185,7 +185,7 @@ The translated Pebble C API can be inspected in the Zig cache with: `less $(find
 The `.pebble` substructure in the options of
 `pebble_sdk.addPebbleApplication()` mirrors the JSON [Pebble App
 Metadata](https://developer.repebble.com/guides/tools-and-resources/app-metadata/).
-See its [definition](build.zig#L447-L466) for an exhaustive list of options.
+See its [definition](build.zig#L422-L441) for an exhaustive list of options.
 
 The `uuid` field should be unique for every application, and can be generated
 with the `uuidgen` command.
