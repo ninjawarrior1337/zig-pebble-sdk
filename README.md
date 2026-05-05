@@ -206,8 +206,14 @@ As a convenience, generated application IDs are available at
 
 ## PebbleKit JS Sources
 
-PebbleKit JS sources detected in the `src/pkjs/` project subdirectory are
-automatically bundled with `webpack` and packaged into the pbw.
+Bundled PebbleKit JS source paths can be specified with the `pebblekit_js_file`
+and `pebblekit_js_map_file` fields in the options of
+`pebble_sdk.addPebbleApplication()` to be packaged into the pbw. Projects can
+incorporate custom JavaScript build flows to produce these files.
+
+See the [Pebble App
+Configuration](https://developer.repebble.com/guides/user-interfaces/app-configuration-static/)
+page for basic instructions on how to build a configuration page.
 
 ## Important Notes
 
