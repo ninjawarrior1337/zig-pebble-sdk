@@ -189,7 +189,7 @@ fn pebble_appids_zig_template(b: *std.Build, platform: PebblePlatform, metadata:
     // Collect message keys
     var message_key_ids: std.ArrayList(u8) = .empty;
     for (metadata.messageKeys) |message_key| {
-        message_key_ids.appendSlice(b.allocator, b.fmt("    {s} = {d},\n", .{ message_key.key, message_key.value })) catch @panic("OOM");
+        message_key_ids.appendSlice(b.fmt("    {s} = {d},\n", .{ message_key.key, message_key.value })) catch @panic("OOM");
     }
 
     // Collect media
@@ -493,7 +493,7 @@ pub fn addPebbleApplication(b: *std.Build, options: PebbleApplicationOptions) vo
         translate_pebble.link_libc = false;
 
         // Create pebble module with pebble static library
-        const translate_pebble_mod = translate_pebble.createModule();
+        const translate_pebble_mod = translate_pebble.addModule("pebble");
         translate_pebble_mod.addObjectFile(.{ .cwd_relative = paths.pebble_static_library_path });
 
         // Translate pebble_process_info.h
@@ -506,7 +506,7 @@ pub fn addPebbleApplication(b: *std.Build, options: PebbleApplicationOptions) vo
         translate_pebble_process_info.link_libc = false;
 
         // Create pebble_process_info module
-        const translate_pebble_process_info_mod = translate_pebble_process_info.createModule();
+        const translate_pebble_process_info_mod = translate_pebble_process_info.addModule("pebble_process_info");
 
         // Code generate pebble_appids module
         const pebble_appids_mod = b.createModule(.{
