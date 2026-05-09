@@ -480,7 +480,7 @@ pub fn addPebbleApplication(b: *std.Build, options: PebbleApplicationOptions) vo
 
         // Translate pebble.h
         const translate_pebble = b.addTranslateC(.{
-            .root_source_file = b.addWriteFiles().add("pebble.h", pebble_header_fixup(b, io, paths.pebble_include_path)),
+            .root_source_file = b.addWriteFiles().add("pebble.h", pebble_header_fixup(b, paths.pebble_include_path)),
             .target = target,
             .optimize = optimize,
         });
